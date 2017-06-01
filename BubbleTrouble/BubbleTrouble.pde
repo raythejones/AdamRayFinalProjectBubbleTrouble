@@ -4,6 +4,7 @@ int numBubbles = 0;
 static final int DIAM = 48, SPD = 3, FPS = 60;
 
 Player p;
+Bubble b;
 
  void setup()
 {
@@ -18,12 +19,14 @@ Player p;
   
 
   p = new Player(width>>1, SPD);
+  b = new Bubble(6);
 }
   
   void draw()
 {
   background(0);
   p.move();
+  b.display(550, 550);
   p.display(); 
 }
 void keyPressed() {
