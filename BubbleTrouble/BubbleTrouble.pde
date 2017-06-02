@@ -19,7 +19,7 @@ Bubble b;
 
     p = new Player(width>>1, SPD);
     b = new Bubble(6);
-    b.display(200, 200);
+    b.display(650, 650);
  
 }
   
