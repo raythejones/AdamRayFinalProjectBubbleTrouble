@@ -4,6 +4,7 @@ int numBubbles = 0;
 static final int DIAM = 48, SPD = 3, FPS = 60;
 
 Player p;
+Harpoon h;
 
  void setup()
 {
@@ -17,7 +18,8 @@ Player p;
   strokeWeight(Player.BOLD);
   
 
-  p = new Player(width>>1, SPD);
+  p = new Player(500);
+  h = new Harpoon(p.position);
 }
   
   void draw()
@@ -25,9 +27,21 @@ Player p;
   background(0);
   p.move();
   p.display(); 
+if(h.canShoot){
+    h.setX(p.position);
 }
+  if(h.isShooting){
+    h.shoot(); 
+  }
+}
+
+
 void keyPressed() {
   p.setMove(keyCode, true);
+if(keyCode == 32){
+ h.isShooting = true;
+}
+
 }
  
 void keyReleased() {
