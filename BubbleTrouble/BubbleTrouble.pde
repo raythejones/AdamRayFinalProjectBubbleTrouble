@@ -19,16 +19,19 @@ Bubble b;
   
 
   p = new Player(width>>1, SPD);
-  b = new Bubble(6);
+  b = new Bubble(3);
 }
   
   void draw()
 {
+  loop();
   background(0);
   p.move();
   b.display(550, 550);
   p.display(); 
+  b.bounce(width/b.size());
 }
+
 void keyPressed() {
   p.setMove(keyCode, true);
 }
