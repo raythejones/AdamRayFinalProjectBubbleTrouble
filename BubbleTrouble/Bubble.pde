@@ -20,6 +20,7 @@ class Bubble{
   
   void bounce(){
     float yspeed = 2.8, xspeed = 2.2;
+    float yaccel = 1, xaccel = 1.5;
     int rad = 60;
      if (x > width-rad || x < rad) {
       xdirection *= -1;
@@ -27,6 +28,8 @@ class Bubble{
     if (y > 650 || y < 400) {
       ydirection *= -1;
     }
+    xspeed = xspeed + yaccel;
+    yspeed = yspeed + xaccel;
     x = x + ( xspeed * xdirection );
     y = y + ( yspeed * ydirection );
 

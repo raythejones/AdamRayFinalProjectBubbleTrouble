@@ -37,4 +37,3 @@ void keyPressed() {
  
 void keyReleased() {
   p.setMove(keyCode, false);
-}
