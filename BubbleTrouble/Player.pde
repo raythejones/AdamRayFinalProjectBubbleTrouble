@@ -1,9 +1,7 @@
 class Player {
   static final color col = #ffffff, OUTLINE = 0;
   static final float BOLD = 2.0;
-  
   int speed = 3;
- 
   boolean isLeft, isRight;
   int position, y;
  
@@ -22,7 +20,7 @@ class Player {
   }
  
  
-  void drawPlayer(){
+  void drawPlayer(){    
        ellipse(position,650,50,50);   
   }
 
