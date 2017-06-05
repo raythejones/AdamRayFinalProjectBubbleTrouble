@@ -1,16 +1,20 @@
 class Bubble{
   private int size;
-  int ydirection = 1, xdirection = 1;
-  int xspeed = 5, yspeed = 0;
-  float x, y;
+  private PVector velocity, acceleration, coords;
   private boolean touchingPlayer, direction;
   
   Bubble(){
-     size = 1; 
+    size = 60;   
+   velocity = new PVector(3, 1);
+   acceleration = new PVector(.05, .001);
+   coords = new PVector(0, 0);
   }
   
   Bubble(int syz){
-   size = syz; 
+   size = syz;   
+   velocity = new PVector(3, 3);
+   acceleration = new PVector(.01, .05);
+   coords = new PVector(0, 0);
   }
   
   void split(){
@@ -18,39 +22,37 @@ class Bubble{
   }
   
   void bounce(){
-    float yaccel = 1.5, xaccel = 1.5;
-    int rad = 60;
     
-    xspeed = xspeed + yaccel;
-    yspeed = yspeed + xaccel;
-    x = x + ( xspeed * xdirection );
-    y = y + ( yspeed * ydirection );
-    
-    if (x > width-rad || x < rad) {
-      xdirection *= -1;
-      if(xdirection == -1){
-        xspeed = 0;
-      }
+    if(coords.x > width-size || coords.x < size){
+       velocity.x *= -1;
+       acceleration.x *= -1;
+    }
+    if(coords.y > 650 || coords.y < 300){
+      velocity.y *= -1;
+      acceleration.y *= -1;
     }
     
-    if (y > 650 || y < 400) {
-      ydirection *= -1;
-      if(ydirection == -1){
-        yspeed = 0;
-      }
+    velocity.add(acceleration);
+    velocity.limit(30);
+    coords.add(velocity);
+    
+    if(random(2) == 0.0){
+      velocity.mult(0);
+      print("reset");
     }
-
-    ellipse(x, y, rad, rad);
-   
+    
+    ellipse(coords.x, coords.y, size, size); 
+    
+    
   }
   
   void display(int x, int y){
-    this.x = x;
-    this.y = y;
-    ellipse(x, y, pow(2, size), pow(2, size));
+    coords.x = x;
+    coords.y = y;
+    ellipse(coords.x, coords.y, pow(2, size), pow(2, size));
   }
   
   int size(){
     return size;
   } 
-}
+} 

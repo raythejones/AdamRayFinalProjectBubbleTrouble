@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 int Time = 0;
 int lives = 0;
 int numBubbles = 0;
@@ -21,13 +20,12 @@ Bubble b;
 
     p = new Player(500);
     h = new Harpoon(p.position);
-    b = new Bubble(6);
-    b.display(650, 650);
+    b = new Bubble(60);
+    b.display(300, 400);
  
 }
   
-  void draw()
-{
+  void draw(){
   background(0);
   p.move();
   p.display(); 
@@ -51,56 +49,3 @@ void keyPressed() {
 void keyReleased() {
   p.setMove(keyCode, false);
 }
-=======
-int Time = 0;
-int lives = 0;
-int numBubbles = 0;
-static final int DIAM = 48, SPD = 3, FPS = 60;
-
-Player p;
-Bubble b;
-Harpoon h;
-
- void setup()
-{
-    size(1000, 750, JAVA2D);
-    smooth(4);
-    frameRate(FPS);
-    ellipseMode(CENTER);
-  
-    fill(Player.col);
-    stroke(Player.OUTLINE);
-    strokeWeight(Player.BOLD);
-
-    p = new Player(500);
-          h = new Harpoon(p.position);
-
-    b = new Bubble(6);
-    b.display(650, 650);
- 
-}
-  
-  void draw()
-{
-  background(0);
-  p.move();
-  p.display(); 
-    if(h.canShoot){
-    h.setX(p.position);
-}
-  if(h.isShooting){
-    h.shoot(); 
-  }
-  b.bounce();
-}
-
-void keyPressed() {
-  p.setMove(keyCode, true);
-    if(keyCode == 32){
- h.isShooting = true;
-}
-}
- 
-void keyReleased() {
-  p.setMove(keyCode, false);}
->>>>>>> 22b841eb3949bcde03bc5b14e18a7274328995c3
