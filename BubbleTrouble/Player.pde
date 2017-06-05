@@ -11,7 +11,7 @@ class Player {
   
   
   void display() {
-    ellipse(position, 650, 50, 50);
+    ellipse(position, 650, 20, 20);
         stroke(255);
     line(position,650,position,690);
     line(position,690,position+20,710);
