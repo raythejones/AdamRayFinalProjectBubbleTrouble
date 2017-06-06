@@ -1,4 +1,4 @@
-int Time = 0;
+ int Time = 0;
 int lives = 0;
 int numBubbles = 0;
 ArrayList<Bubble> bubbles = new ArrayList<Bubble>();
