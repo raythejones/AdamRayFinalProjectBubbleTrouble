@@ -1,18 +1,16 @@
 class Bubble{
   private int size;
-  private PVector velocity, acceleration, coords;
+  private PVector velocity, coords;
   
   Bubble(int syz){
    size = syz;   
    velocity = new PVector(3, 3);
-   acceleration = new PVector(.01, .05);
    coords = new PVector(100, 150);
   }
   
   Bubble(int syz, float x, float y, int xdirection){
    size = syz;   
    velocity = new PVector(3 * xdirection,  -3);
-   acceleration = new PVector(.01 * xdirection, .05);
    coords = new PVector(x, y);
   }
   
@@ -25,18 +23,17 @@ class Bubble{
     if(coords.x > width-size || coords.x < size){
        velocity.x *= -1;
     }
-    if(coords.y > 650 || coords.y < 100){
+    if(coords.y > 700 || coords.y < 100){
       velocity.y *= -1;
+      if(coords.y > 700){
+        coords.y += 1;
+      }
     }
     
-    velocity.y += .25;
-    velocity.limit(size/2);
+    velocity.y += .25;  
     coords.add(velocity);
     
-    if(random(2) == 0.0){
-      velocity.mult(0);
-      print("reset");
-    }
+
     
     ellipse(coords.x, coords.y, size, size); 
     

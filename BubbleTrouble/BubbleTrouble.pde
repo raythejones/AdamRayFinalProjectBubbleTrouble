@@ -26,7 +26,7 @@ Bubble b;
 }
   
   void draw(){
-  background(0);
+    background(0);
   p.move();
   p.display(); 
   for(int i = 0; i < bubbles.size(); i++){
