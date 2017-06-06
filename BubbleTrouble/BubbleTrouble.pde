@@ -26,7 +26,7 @@ Bubble b;
 }
   
   void draw(){
-  background(0);
+  background(loadImage("BubbTroubBack.jpg"));
   p.move();
   p.display(); 
   b.bounce();
