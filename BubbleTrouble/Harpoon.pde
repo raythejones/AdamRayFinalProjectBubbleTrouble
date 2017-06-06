@@ -12,21 +12,31 @@ class Harpoon{
   }
 
   void shoot(){  
-  if(startY > 0){ 
-    canShoot = false;
-    stroke(255);
-    line(harposition,650,harposition,startY);
-    startY-=11;
+    if(startY > 0){ 
+      canShoot = false;
+      stroke(255);
+      line(harposition,650,harposition,startY);
+      startY-=11;
+    }
+    else {
+     canShoot = true; 
+     startY = 650;
+     isShooting = false;
+    }
+   }
+  
+  void reset(){
+    canShoot = true; 
+    startY = 650;
+    isShooting = false;
   }
-  else {
-   canShoot = true; 
-   startY = 650;
-   isShooting = false;
+  
+  PVector endPoint(){
+    return new PVector(harposition, startY);
   }
-}
 
 
- boolean setMove(int k, boolean b) {
+  boolean setMove(int k, boolean b) {
     if(k == 32){
       return isShooting = b;
     }
@@ -34,6 +44,7 @@ class Harpoon{
       return b;
     }
  }
+ 
 }
     
         

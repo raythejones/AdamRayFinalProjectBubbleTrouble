@@ -1,6 +1,7 @@
 int Time = 0;
 int lives = 0;
 int numBubbles = 0;
+ArrayList<Bubble> bubbles = new ArrayList<Bubble>();
 static final int DIAM = 48, SPD = 3, FPS = 60;
 
 Player p;
@@ -20,8 +21,7 @@ Bubble b;
 
     p = new Player(500);
     h = new Harpoon(p.position);
-    b = new Bubble(60);
-    b.display(300, 400);
+    bubbles.add(new Bubble(60));
  
 }
   
@@ -29,7 +29,19 @@ Bubble b;
   background(0);
   p.move();
   p.display(); 
-  b.bounce();
+  for(int i = 0; i < bubbles.size(); i++){
+    Bubble bub = bubbles.get(i);
+    bub.bounce();
+    if(bub.dist(h.endPoint()) <= bub.size() * 1.05){
+      h.reset();
+      if(bub.size()/2 > 10){
+        Bubble[] children = bub.split();
+        bubbles.add(children[0]);
+        bubbles.add(children[1]);
+      }
+      bubbles.remove(bub);
+    } 
+  }
   if(h.canShoot){
     h.setX(p.position);
   }
