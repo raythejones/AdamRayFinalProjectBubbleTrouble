@@ -24,14 +24,12 @@ class Bubble{
     
     if(coords.x > width-size || coords.x < size){
        velocity.x *= -1;
-       acceleration.x *= -1;
     }
     if(coords.y > 650 || coords.y < 100){
       velocity.y *= -1;
-      acceleration.y *= -1;
     }
     
-    velocity.add(acceleration);
+    velocity.y += .25;
     velocity.limit(size/2);
     coords.add(velocity);
     
