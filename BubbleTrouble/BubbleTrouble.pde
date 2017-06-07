@@ -6,6 +6,7 @@ static final int DIAM = 48, SPD = 3, FPS = 60;
 
 Player p;
 Harpoon h;
+boolean endGame = false;
 
  void setup()
 {
@@ -25,14 +26,16 @@ Harpoon h;
 }
   
   void draw(){
+        if(endGame == false){
+
     background(0);
     p.move();
-    p.display(); 
-    
+ if(p.isAlive){
+  p.display(); }    
     for(int i = 0; i < bubbles.size(); i++){
       Bubble bub = bubbles.get(i);
       bub.bounce();
-      if(bub.dist(h.endPoint()) <= bub.size() * 1.05){
+      if(bub.dist(h.endPoint()) <= bub.size() * 1.02){
         h.reset();
         if(bub.size()/2 > 10){
           Bubble[] children = bub.split();
@@ -40,7 +43,11 @@ Harpoon h;
           bubbles.add(children[1]);
         }
         bubbles.remove(bub);
-      } 
+      }
+          if(bub.dist(p.currentPos()) <= bub.size() * 1.05){
+     p.isAlive = false; 
+     endGame = true; 
+  }
     }
     
     if(h.canShoot){
@@ -50,7 +57,11 @@ Harpoon h;
     if(h.isShooting){
       h.shoot();
     }
+      if(endGame == true){
+  background(100);
+  text("gg boiz", 500,400);
   }
+  }}
 
   void keyPressed() {
     p.setMove(keyCode, true);
