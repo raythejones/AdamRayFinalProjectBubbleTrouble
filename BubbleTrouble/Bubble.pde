@@ -4,13 +4,13 @@ class Bubble{
   
   Bubble(int syz){
    size = syz;   
-   velocity = new PVector(3, 3);
-   coords = new PVector(100, 150);
+   velocity = new PVector(3, size/3.5);
+   coords = new PVector(150, 650);
   }
   
   Bubble(int syz, float x, float y, int xdirection){
    size = syz;   
-   velocity = new PVector(3 * xdirection,  -3);
+   velocity = new PVector(3 * xdirection,  size/3.5);
    coords = new PVector(x, y);
   }
   
@@ -23,8 +23,9 @@ class Bubble{
     if(coords.x > width-size || coords.x < size){
        velocity.x *= -1;
     }
-    if(coords.y > 650 || coords.y < 100){
-      velocity.y *= -1;
+    if(coords.y > 650){
+      velocity.y = size/3.5;
+      coords.y = 650;
     }
     
     velocity.y += .25;  

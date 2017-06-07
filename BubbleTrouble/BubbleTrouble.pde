@@ -16,7 +16,7 @@ Harpoon h;
   
     fill(Player.col);
     stroke(Player.OUTLINE);
-    strokeWeight(Player.BOLD);
+    strokeWeight(Player.BOLD);  
 
     p = new Player(500);
     h = new Harpoon(p.position);
