@@ -25,9 +25,6 @@ class Bubble{
     }
     if(coords.y > 700 || coords.y < 100){
       velocity.y *= -1;
-      if(coords.y > 700){
-        coords.y += 1;
-      }
     }
     
     velocity.y += .25;  
