@@ -1,7 +1,8 @@
 class Harpoon{
   int harposition;
   boolean isShooting, canShoot = true;
-  int startY = 650;
+  int startY = 650, len = 0;
+  float accel = .7, takeaway = 11;
 
   Harpoon(int PosValue){
     harposition = PosValue;
@@ -16,7 +17,8 @@ class Harpoon{
       canShoot = false;
       stroke(255);
       line(harposition,650,harposition,startY);
-      startY-=11;
+      startY -= takeaway;
+      takeaway += accel;
     }
     else {
      canShoot = true; 
@@ -29,7 +31,12 @@ class Harpoon{
     canShoot = true; 
     startY = 650;
     isShooting = false;
+    len = 0;
   }
+  
+  void settw(int toset){
+    takeaway = toset;
+  };
   
   PVector endPoint(){
     return new PVector(harposition, startY);

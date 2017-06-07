@@ -28,6 +28,7 @@ Harpoon h;
   background(0);
   p.move();
   p.display(); 
+  
   for(int i = 0; i < bubbles.size(); i++){
     Bubble bub = bubbles.get(i);
     bub.bounce();
@@ -41,7 +42,9 @@ Harpoon h;
       bubbles.remove(bub);
     } 
   }
+  
   if(h.canShoot){
+    h.settw(11);
     h.setX(p.position);
   }
   if(h.isShooting){
