@@ -4,11 +4,12 @@ class Player {
   int speed = 5;
   boolean isLeft, isRight;
   int position, y;
- 
+ boolean isAlive = true;
   Player(int xx) {
     position = xx;
-  }
+}
   
+ 
   
   void display() {
     ellipse(position, 650, 20, 20);
@@ -18,8 +19,13 @@ class Player {
     line(position,690,position-20,710);
     line(position-15,670,position+15,670);
     line(position-15,670,position+15,670);
+
   }
  
+   PVector currentPos(){
+    return new PVector(position, 650);
+  }
+  
   void move() {
     int r = 20>>1;
     position = constrain(position + speed*(int(isRight) - int(isLeft)), r, width  - r);
