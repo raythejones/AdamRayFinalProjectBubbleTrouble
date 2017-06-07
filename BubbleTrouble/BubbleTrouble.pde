@@ -25,42 +25,41 @@ Harpoon h;
 }
   
   void draw(){
-  background(0);
-  p.move();
-  p.display(); 
-  
-  for(int i = 0; i < bubbles.size(); i++){
-    Bubble bub = bubbles.get(i);
-    bub.bounce();
-    if(bub.dist(h.endPoint()) <= bub.size() * 1.05){
-      h.reset();
-      if(bub.size()/2 > 10){
-        Bubble[] children = bub.split();
-        bubbles.add(children[0]);
-        bubbles.add(children[1]);
-      }
-      bubbles.remove(bub);
-    } 
+    background(0);
+    p.move();
+    p.display(); 
+    
+    for(int i = 0; i < bubbles.size(); i++){
+      Bubble bub = bubbles.get(i);
+      bub.bounce();
+      if(bub.dist(h.endPoint()) <= bub.size() * 1.05){
+        h.reset();
+        if(bub.size()/2 > 10){
+          Bubble[] children = bub.split();
+          bubbles.add(children[0]);
+          bubbles.add(children[1]);
+        }
+        bubbles.remove(bub);
+      } 
+    }
+    
+    if(h.canShoot){
+      h.settw(11);
+      h.setX(p.position);
+    }
+    if(h.isShooting){
+      h.shoot();
+    }
   }
-  
-  if(h.canShoot){
-    h.settw(11);
-    h.setX(p.position);
-  }
-  if(h.isShooting){
-    h.shoot();
-  }
-}
 
-void keyPressed() {
-  p.setMove(keyCode, true);
-  if(keyCode == 32){
-   h.isShooting = true;
+  void keyPressed() {
+    p.setMove(keyCode, true);
+    if(keyCode == 32){
+     h.isShooting = true;
+    }
   }
-}
 
  
-void keyReleased() {
-  p.setMove(keyCode, false);
-
-}
+  void keyReleased() {
+    p.setMove(keyCode, false);
+  }
