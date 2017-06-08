@@ -18,12 +18,14 @@ class Harpoon{
       stroke(255);
       line(harposition,650,harposition,startY);
       startY -= takeaway;
+      len += takeaway;
       takeaway += accel;
     }
     else {
      canShoot = true; 
      startY = 650;
      isShooting = false;
+     len = 0;
     }
    }
   

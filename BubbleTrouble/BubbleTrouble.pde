@@ -44,10 +44,10 @@ boolean endGame = false;
         }
         bubbles.remove(bub);
       }
-          if(bub.dist(p.currentPos()) <= bub.size() * 1.05){
-     p.isAlive = false; 
-     endGame = true; 
-  }
+    if(bub.dist(p.currentPos()) <= bub.size() * 1.02 || bub){
+       p.isAlive = false; 
+       endGame = true; 
+    }
     }
     
     if(h.canShoot){
