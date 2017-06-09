@@ -1,7 +1,7 @@
 int Time = 0;
 int lives = 0; 
 int level = 1;
-float distBetweenBubs = 1500;
+float distBetweenBubs = 200;
 ArrayList<Bubble> bubbles = new ArrayList<Bubble>();
 static final int DIAM = 48, SPD = 3, FPS = 60;
 
@@ -71,8 +71,7 @@ boolean endGame = false;
         if(bubbles.size() == 0){
           level += 1;
           for(int j = 0; j < level; j++){
-            bubbles.add(new Bubble(60));
-            bubbles.get(j).setX(100 + (distBetweenBubs * i));
+            bubbles.add(new Bubble(60, 500 + ((distBetweenBubs * level) / 2) - distBetweenBubs * j, 350, (int)pow(-1, j)));
           }
         }
       }
