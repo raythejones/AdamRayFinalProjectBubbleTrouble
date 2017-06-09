@@ -59,7 +59,7 @@ boolean endGame = false;
     bub.bounce();
     PVector wya = bub.getCoords();
     PVector aqui = h.endPoint();
-    if(abs((wya.x - aqui.x) / ((wya.x + aqui.x) / 2)) <= .025 && wya.y >= aqui.y){
+    if(abs((wya.x - aqui.x) / ((wya.x + aqui.x) / 2)) <= .05 && wya.y >= aqui.y){
         h.reset();
         if(bub.size()/2 > 10){
           Bubble[] children = bub.split();
