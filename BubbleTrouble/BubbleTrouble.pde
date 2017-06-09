@@ -59,7 +59,7 @@ boolean endGame = false;
     bub.bounce();
     PVector wya = bub.getCoords();
     PVector aqui = h.endPoint();
-    if(abs((wya.x - aqui.x) / ((wya.x + aqui.x) / 2)) <= .025 && wya.y <= aqui.y){
+    if(abs((wya.x - aqui.x) / ((wya.x + aqui.x) / 2)) <= .025 && wya.y >= aqui.y){
         h.reset();
         if(bub.size()/2 > 10){
           Bubble[] children = bub.split();
@@ -75,7 +75,7 @@ boolean endGame = false;
     }
     
     if(h.canShoot){
-      h.settw(11);
+      h.settw(4);
       h.setX(p.position);
     }
     if(h.isShooting){

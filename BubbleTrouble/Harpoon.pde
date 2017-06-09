@@ -1,8 +1,8 @@
 class Harpoon{
   int harposition;
   boolean isShooting, canShoot = true;
-  int startY = 650, len = 0;
-  float accel = .05, takeaway = 4;
+  int startY = 700, len = 0;
+  float accel = .02, takeaway = 4;
 
   Harpoon(int PosValue){
     harposition = PosValue;
@@ -31,7 +31,7 @@ class Harpoon{
   
   void reset(){
     canShoot = true; 
-    startY = 650;
+    startY = 700;
     isShooting = false;
     len = 0;
   }
