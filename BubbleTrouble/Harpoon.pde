@@ -15,7 +15,7 @@ class Harpoon{
   void shoot(){  
     if(startY > 0){ 
       canShoot = false;
-      stroke(255);
+      stroke(191);
       line(harposition,650,harposition,startY);
       startY -= takeaway;
       len += takeaway;
