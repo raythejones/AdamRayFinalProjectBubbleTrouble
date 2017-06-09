@@ -44,7 +44,7 @@ boolean endGame = false;
         }
         bubbles.remove(bub);
       }
-    if(bub.dist(p.currentPos()) <= bub.size() * 1.02 || bub){
+    if(bub.dist(p.currentPos()) <= bub.size() * 1.02){
        p.isAlive = false; 
        endGame = true; 
     }
