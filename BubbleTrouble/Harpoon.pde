@@ -2,7 +2,7 @@ class Harpoon{
   int harposition;
   boolean isShooting, canShoot = true;
   int startY = 650, len = 0;
-  float accel = .1, takeaway = 5;
+  float accel = .05, takeaway = 4;
 
   Harpoon(int PosValue){
     harposition = PosValue;

@@ -29,8 +29,8 @@ boolean endGame = false;
    if(endGame == false){
 
     background(0);
-        fill(153, 38, 0);
-stroke(153, 38, 0);
+    fill(153, 38, 0);
+    stroke(153, 38, 0);
     rect(0,711,1000, 75);
     stroke(255);
 
@@ -39,26 +39,27 @@ stroke(153, 38, 0);
     line(0,725,1000,725);
     line(0,735,1000,735);
     line(0,745,1000,745);
-
-fill(255);
+    fill(255);
+    
     p.move();
- if(p.isAlive){
-  p.display(); }    
-    for(int i = 0; i < bubbles.size(); i++){
-        
-
-    
-      Bubble bub = bubbles.get(i);
-       if(bub.size() == 60){fill(255, 102, 0);
+ 
+   if(p.isAlive){
+    p.display(); 
+  }    
+   
+  for(int i = 0; i < bubbles.size(); i++){
+    Bubble bub = bubbles.get(i);
+    if(bub.size() == 60){fill(255, 102, 0);
     stroke(255, 102, 0);}
-    
     if(bub.size() == 30){fill(204, 102, 255);
     stroke(204, 102, 255);}
-    
     if(bub.size() == 15){fill(102, 255, 153);
     stroke(102, 255, 153);}
-      bub.bounce();
-      if(bub.dist(h.endPoint()) <= bub.size() * 1.02){
+      
+    bub.bounce();
+    PVector wya = bub.getCoords();
+    PVector aqui = h.endPoint();
+    if(abs((wya.x - aqui.x) / ((wya.x + aqui.x) / 2)) <= .025 && wya.y <= aqui.y){
         h.reset();
         if(bub.size()/2 > 10){
           Bubble[] children = bub.split();
