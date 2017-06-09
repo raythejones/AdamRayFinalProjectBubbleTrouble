@@ -107,5 +107,4 @@ fill(255);
  
   void keyReleased() {
     p.setMove(keyCode, false);
-
   }
