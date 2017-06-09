@@ -42,6 +42,10 @@ class Bubble{
     return coords;
   }
   
+  void setX(float ex){
+    coords.x = ex;
+  }  
+  
   float dist(PVector other){
     return coords.dist(other);
   }

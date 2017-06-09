@@ -1,6 +1,7 @@
 int Time = 0;
-int lives = 0;
-int numBubbles = 0;
+int lives = 0; 
+int level = 1;
+float distBetweenBubs = 1500;
 ArrayList<Bubble> bubbles = new ArrayList<Bubble>();
 static final int DIAM = 48, SPD = 3, FPS = 60;
 
@@ -59,7 +60,7 @@ boolean endGame = false;
     bub.bounce();
     PVector wya = bub.getCoords();
     PVector aqui = h.endPoint();
-    if(abs((wya.x - aqui.x) / ((wya.x + aqui.x) / 2)) <= .05 && wya.y >= aqui.y){
+    if(abs((wya.x - aqui.x) / ((wya.x + aqui.x) / 2)) <= .025 && wya.y >= aqui.y){
         h.reset();
         if(bub.size()/2 > 10){
           Bubble[] children = bub.split();
@@ -67,6 +68,13 @@ boolean endGame = false;
           bubbles.add(children[1]);
         }
         bubbles.remove(bub);
+        if(bubbles.size() == 0){
+          level += 1;
+          for(int j = 0; j < level; j++){
+            bubbles.add(new Bubble(60));
+            bubbles.get(j).setX(100 + (distBetweenBubs * i));
+          }
+        }
       }
     if(bub.dist(p.currentPos()) <= bub.size() * 1.02){
        p.isAlive = false; 
