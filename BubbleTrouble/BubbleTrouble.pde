@@ -1,4 +1,4 @@
-int Time = 0, lives = 0, level = 1, chanceOfSpawn = 300, numberPowerups = 2;
+int Time = 0, lives = 0, level = 1, chanceOfSpawn = 300, numberPowerups = 3;
 float distBetweenBubs = 200;
 ArrayList<Bubble> bubbles = new ArrayList<Bubble>();
 static final int DIAM = 48, SPD = 3, FPS = 60;
@@ -115,9 +115,8 @@ void draw() {
 
     if (h.canShoot) {
       h.settw(11);
-      h.setX(p.position);
+      h.setX(0);
     }
-
     if (h.isShooting) {
       h.shoot();
     }
@@ -133,13 +132,16 @@ void draw() {
 }
 
 void makeAPup() {
-  //int num = (int)random(numberPowerups);
-  switch (0) {
+  int num = (int)random(numberPowerups);
+  switch (num) {
   case 0:
     finnaSpawn = new speedpowerup(p);
     break;
   case 1:
     finnaSpawn = new invincibility(p);
+    break;
+  case 2:
+    finnaSpawn = new twoPoons(h);
     break;
   }
   finnaSpawn.makeNewPowerupKinda();

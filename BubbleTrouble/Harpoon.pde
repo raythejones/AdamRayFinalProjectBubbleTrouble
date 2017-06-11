@@ -1,8 +1,12 @@
 class Harpoon{
   int harposition;
   boolean isShooting, canShoot = true;
+  boolean dos = false;
   int startY = 711, len = 0;
   float accel = .1, takeaway = 4;
+  
+  Harpoon(){
+  }
 
   Harpoon(int PosValue){
     harposition = PosValue;
@@ -16,7 +20,13 @@ class Harpoon{
     if(startY > 0){ 
       canShoot = false;
       stroke(191);
-      line(harposition,711,harposition,startY);
+      int offset = 0;
+      if(dos){
+        print("doin smth");
+        offset = 25;
+        line(harposition - offset, 711, harposition - offset, startY);
+      }
+      line(harposition + offset,711,harposition + offset,startY);
       startY -= takeaway;
       len += takeaway;
       takeaway += accel;
