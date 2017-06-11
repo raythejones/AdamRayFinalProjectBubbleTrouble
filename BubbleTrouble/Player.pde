@@ -9,8 +9,6 @@ class Player {
     position = xx;
 }
   
- 
-  
   void display() {
     ellipse(position, 650, 20, 20);
         stroke(255);

@@ -1,11 +1,11 @@
-int Time = 0, lives = 0, level = 1, chanceOfSpawn = 10;
+int Time = 0, lives = 0, level = 1, chanceOfSpawn = 200, numberPowerups = 1;
 float distBetweenBubs = 200;
 ArrayList<Bubble> bubbles = new ArrayList<Bubble>();
 static final int DIAM = 48, SPD = 3, FPS = 60;
 
 Player p;
 Harpoon h;
-Powerup finnaSpawn = new Powerup(p);
+Powerup finnaSpawn;
 boolean endGame = false;
 
  void setup()
@@ -22,17 +22,20 @@ boolean endGame = false;
     p = new Player(500);
     h = new Harpoon(p.position);
     bubbles.add(new Bubble(60));
+    makeAPup();
  
 }
   
   void draw(){
     if(endGame == false){
+      
+      //DRAWING THE WINDOW\\
+      
       background(0);
       fill(153, 38, 0);
       stroke(153, 38, 0);
       rect(0,711,1000, 75);
       stroke(255);
-  
   
       line(0,715,1000,715);
       line(0,725,1000,725);
@@ -40,26 +43,26 @@ boolean endGame = false;
       line(0,745,1000,745);
       fill(255);
       
-      if(finnaSpawn.canBeDisplayed()){
-        finnaSpawn.fall();
-        if(finnaSpawn.isTouching(p.currentPos())){
-          finnaSpawn.powerUP();
+      //// POWERUP CODE \\\\\ 
+      if(!finnaSpawn.canBeDisplayed()){
+        if(random(chanceOfSpawn) < 1){
+         makeAPup();
         }
-        
       }
       else{
-        //if(random(chanceOfSpawn) == 0){
-          finnaSpawn.setNewSpawn();
-          finnaSpawn.show();
-        //}
+        finnaSpawn.show();
+        thread("poweritup");
       }
       
+      
+      //PLAYER MOVEMENT\\
       p.move();
    
      if(p.isAlive){
        p.display();
      }    
      
+     //BUBBLE MOVEMENT SLASH INTERACTION \\
      for(int i = 0; i < bubbles.size(); i++){
        Bubble bub = bubbles.get(i);
        if(bub.size() == 60){
@@ -78,7 +81,7 @@ boolean endGame = false;
        bub.bounce();
        PVector wya = bub.getCoords();
        PVector aqui = h.endPoint();
-       if(abs((wya.x - aqui.x) / ((wya.x + aqui.x) / 2)) <= .05 && wya.y >= aqui.y){
+       if(abs((wya.x - aqui.x) / ((wya.x + aqui.x) / 2)) <= .04 && wya.y >= aqui.y){
            h.reset();
            if(bub.size()/2 > 10){
              Bubble[] children = bub.split();
@@ -101,6 +104,7 @@ boolean endGame = false;
        
       }
       
+      //HARPOON SHOOTING\\
       if(h.canShoot){
         h.settw(4);
         h.setX(p.position);
@@ -109,6 +113,17 @@ boolean endGame = false;
       if(h.isShooting){
         h.shoot();
       }
+      
+      if(h.canShoot){
+        h.settw(11);
+        h.setX(p.position);
+      }
+    
+      if(h.isShooting){
+        h.shoot();
+      }
+      
+      //ENDING THE GAME\\
       if(endGame == true){
         background(100);
         fill(255,0,0);
@@ -116,15 +131,23 @@ boolean endGame = false;
         text("Game Over", 315,400);
       }
     }
-    
-    if(h.canShoot){
-      h.settw(11);
-      h.setX(p.position);
-    }
-    
-    if(h.isShooting){
-      h.shoot();
-    }
+  }
+  
+  void makeAPup(){
+     int num = (int)random(numberPowerups);
+      switch (num) {
+        case 0:
+          finnaSpawn = new speedpowerup(p);
+       }
+      finnaSpawn.makeNewPowerupKinda();
+  }
+  void poweritup(){
+      if(finnaSpawn.isTouching(p.currentPos())){
+        finnaSpawn.use();
+      }
+      if(!finnaSpawn.onFloor()){
+        finnaSpawn.fall();
+      }
   }
 
   void keyPressed() {
