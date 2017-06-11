@@ -1,4 +1,4 @@
-int Time = 0, lives = 0, level = 1, chanceOfSpawn = 200;
+int Time = 0, lives = 0, level = 1, chanceOfSpawn = 200, numberPowerups = 1;
 float distBetweenBubs = 200;
 ArrayList<Bubble> bubbles = new ArrayList<Bubble>();
 static final int DIAM = 48, SPD = 3, FPS = 60;
@@ -21,7 +21,6 @@ boolean endGame = false;
 
     p = new Player(500);
     h = new Harpoon(p.position);
-    finnaSpawn = new Powerup(p);
     bubbles.add(new Bubble(60));
  
 }
@@ -46,8 +45,7 @@ boolean endGame = false;
       //// POWERUP CODE \\\\\ 
       if(!finnaSpawn.canBeDisplayed()){
         if(random(chanceOfSpawn) < 1){
-          finnaSpawn = new Powerup(p);
-          finnaSpawn.makeNewPowerupKinda();
+         
         }
       }
       else{
@@ -134,6 +132,14 @@ boolean endGame = false;
     }
   }
   
+  void makeAPup(){
+     int num = (int)random(numberPowerups);
+      switch (num) {
+        case 0:
+          finnaSpawn = new speedpowerup(p);
+       }
+      finnaSpawn.makeNewPowerupKinda();
+  }
   void poweritup(){
       if(finnaSpawn.isTouching(p.currentPos())){
         finnaSpawn.use();

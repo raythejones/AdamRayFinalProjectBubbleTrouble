@@ -1,17 +1,9 @@
-class Powerup extends Powerup{
+class speedpowerup extends Powerup{
     boolean isVisible;
     float x,y;
     Player playa;
-    Harpoon hapoon;
     
-    
-    Powerup(){
-      isVisible = false;
-      x = 500;
-      y = 550;
-    }
-    
-    Powerup(Player needstobewatched){
+    speedpowerup(Player needstobewatched){
       isVisible = false;
       x = 500;
       y = 550;
@@ -19,12 +11,6 @@ class Powerup extends Powerup{
       print(playa);
     }
     
-    Powerup(Harpoon alsoneedstobewatched){
-      isVisible = false;
-      x = 500;
-      y = 550;
-      hapoon = alsoneedstobewatched;
-    }
    
     void show(){
       isVisible = true;

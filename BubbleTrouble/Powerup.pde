@@ -1,34 +1,8 @@
 abstract class Powerup{
     boolean isVisible;
     float x,y;
-    
-    
-    Powerup(){
-      isVisible = false;
-      x = 500;
-      y = 550;
-    }
-    
-    Powerup(Player needstobewatched){
-      isVisible = false;
-      x = 500;
-      y = 550;
-      playa = needstobewatched;
-      print(playa);
-    }
-    
-    Powerup(Harpoon alsoneedstobewatched){
-      isVisible = false;
-      x = 500;
-      y = 550;
-      hapoon = alsoneedstobewatched;
-    }
    
-    void show(){
-      isVisible = true;
-      //ellipse(x, y, 25, 25);
-      image(loadImage("lightningbolt.png"), x, y);
-    }
+    void show(){}
     
     void setNewSpawn(){
       x = random(700) + 150;
@@ -44,12 +18,7 @@ abstract class Powerup{
       show();
     }
     
-    void powerUP(){
-      playa.speed = 15;
-      isVisible = false;
-      delay(5000);
-      playa.speed = 5;
-    }
+    void powerUP(){}
     
     void use(){
       powerUP();
