@@ -1,4 +1,4 @@
-int Time = 0, lives = 0, level = 1, chanceOfSpawn = 300, numberPowerups = 3, sf = 3;
+int Time = 0, level = 1, chanceOfSpawn = 300, numberPowerups = 3, sf = 3;
 float distBetweenBubs = 200;
 ArrayList<Bubble> bubbles = new ArrayList<Bubble>();
 static final int DIAM = 48, SPD = 3, FPS = 60;
@@ -21,18 +21,35 @@ void setup()
   stroke(Player.OUTLINE);
   strokeWeight(Player.BOLD);  
 
-  p = new Player(500);
-  h = new Harpoon(p.position);
-  makeAPup();
-  finnaSpawn.isVisible = false;
-
   pic = loadImage("back.jpg");
   bg = loadImage("StartScreen.png");
 }
 
 void draw() {
   if (!gameStarted) {
+    bubbles = new ArrayList<Bubble>();
+    p = new Player(500);
+    h = new Harpoon(p.position);
+    makeAPup();
+    level = 1;
+    finnaSpawn.isVisible = false;
     background(bg);
+    if (mouseY <= 275 && mouseY >= 220) {
+      fill(0);
+      textSize(25);
+      if (mouseX >= 480 && mouseX <= 605) {
+        String s = "Only 3 shots to delete a bubble, and a high powerup spawn rate";
+        text(s, 650, 350, 200, 200);
+      }
+      if (mouseX >= 660 && mouseX <= 785) {
+        String s = "4 shots to delete a bubble, and a moderate powerup spawn rate";
+        text(s, 650, 350, 200, 200);
+      }
+      if (mouseX >= 845 && mouseX <= 965) {
+        String s = "5 shots to delete a bubble, and a low powerup spawn rate";
+        text(s, 650, 350, 200, 200);
+      }
+    }
   } else {
     if (endGame == false) {
 
@@ -113,7 +130,7 @@ void draw() {
           if (bubbles.size() == 0) {
             level += 1;
             for (int j = 0; j < level; j++) {
-              bubbles.add(new Bubble(60, 450 + ((distBetweenBubs * level) / 2) - distBetweenBubs * j, 350, (int)pow(-1, j), sf));
+              bubbles.add(new Bubble(60, 500 + ((distBetweenBubs * level) / 2) - distBetweenBubs * j, 350, (int)pow(-1, j), sf));
             }
           }
         }
@@ -150,6 +167,14 @@ void draw() {
         fill(255, 0, 0);
         textSize(70);
         text("Game Over", 315, 400);
+
+        fill(0);
+        stroke(255);
+        rect(360, 470, 250, 100);
+
+        fill(255);
+        textSize(25);
+        text("Click to restart!", 385, 525);
       }
     }
   }
@@ -196,6 +221,13 @@ void mousePressed() {
       }
     }
   }
+  if (endGame) {
+    print("(" + mouseX + ", " + mouseY + ")" + "\n");
+    if (mouseX <= 610 && mouseX >= 360 && mouseY >= 470 && mouseY <= 570) {
+      gameStarted = false;
+      endGame = false;
+    }
+  }
 }
 
 void startGame(int diff) {
@@ -211,6 +243,7 @@ void startGame(int diff) {
     chanceOfSpawn = 1700;
     sf = 5;
   }
+  endGame = false;
   bubbles.add(new Bubble(60, sf));
   gameStarted = true;
 }
