@@ -24,6 +24,7 @@ void setup()
   p = new Player(500);
   h = new Harpoon(p.position);
   makeAPup();
+  finnaSpawn.isVisible = false;
 
   pic = loadImage("back.jpg");
   bg = loadImage("StartScreen.png");
@@ -39,6 +40,15 @@ void draw() {
       //DRAWING THE WINDOW\\
 
       background(pic);
+      
+      fill(0);
+      textSize(20);
+      text("Active Powerups", 815, 40);
+      
+      fill(255);
+      stroke(0);
+      rect(820, 50, 150, 100);
+      
       fill(153, 38, 0);
       stroke(153, 38, 0);
       rect(0, 711, 1000, 75);

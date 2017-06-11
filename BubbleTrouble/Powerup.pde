@@ -1,5 +1,5 @@
 abstract class Powerup {
-  boolean isVisible;
+  boolean isVisible, inUse;
   float x, y;
 
   void show() {
@@ -11,7 +11,9 @@ abstract class Powerup {
   }
 
   void fall() {
-    y += 5;
+    if (!inUse) {  
+      y += 5;
+    }
   }
 
   void makeNewPowerupKinda() {

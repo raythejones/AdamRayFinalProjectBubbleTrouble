@@ -16,8 +16,12 @@ class invincibility extends Powerup {
 
   void powerUP() {
     playa.canDie = false;
-    isVisible = false;
+    inUse = true;
+    x = 900;
+    y = 100;
     delay(5000);
+    isVisible = false;
+    inUse = false;
     playa.canDie = true;
   }
 

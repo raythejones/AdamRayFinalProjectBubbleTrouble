@@ -16,8 +16,12 @@ class speedpowerup extends Powerup {
 
   void powerUP() {
     playa.speed = 15;
-    isVisible = false;
+    inUse = true;
+    x = 950;
+    y = 100;
     delay(5000);
+    isVisible = false;
+    inUse = false;
     playa.speed = 5;
   }
 

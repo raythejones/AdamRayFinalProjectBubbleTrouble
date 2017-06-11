@@ -21,8 +21,12 @@ class twoPoons extends Powerup {
   void powerUP() {
     print(poony.dos);
     poony.dos = true;
-    isVisible = false;
+    inUse = true; 
+    x = 850;
+    y = 100;
     delay(3500);
+    isVisible = false;
+    inUse = false;
     poony.dos = false;
     poony.offset = 0;
   }
