@@ -16,6 +16,7 @@ class Powerup{
       x = 500;
       y = 550;
       playa = needstobewatched;
+      print(playa);
     }
     
     Powerup(Harpoon alsoneedstobewatched){
@@ -32,18 +33,34 @@ class Powerup{
     
     void setNewSpawn(){
       x = random(700) + 150;
-      y = random(611) + 100; 
+      y = random(611) + 100;
     }
     
     void fall(){
-      while(y < 711){
-        y -= 10;
-      }
+      y += 5;
+    }
+    
+    void makeNewPowerupKinda(){
+      setNewSpawn();
+      show();
     }
     
     void powerUP(){
       playa.speed = 15;
       isVisible = false;
+      delay(5000);
+      playa.speed = 5;
+    }
+    
+    void use(){
+      powerUP();
+      isVisible = false;
+      x = 0;
+      y = 0;
+    }
+    
+    boolean onFloor(){
+      return y >= 711;
     }
     
     boolean canBeDisplayed(){
@@ -52,6 +69,7 @@ class Powerup{
     
     boolean isTouching(PVector otherObj){
      PVector coords = new PVector(x, y);
-     return coords.dist(otherObj) < 3;
+     print(coords + " " + otherObj + "\n");
+     return coords.dist(otherObj) < 75;
     }
 }
