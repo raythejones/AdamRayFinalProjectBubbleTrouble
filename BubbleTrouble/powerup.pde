@@ -28,12 +28,13 @@ class Powerup{
    
     void show(){
       isVisible = true;
-      ellipse(x, y, 25, 25);
+      //ellipse(x, y, 25, 25);
+      image(loadImage("lightningbolt.png"), x, y);
     }
     
     void setNewSpawn(){
       x = random(700) + 150;
-      y = random(611) + 100;
+      y = random(400) + 100;
     }
     
     void fall(){
@@ -60,7 +61,7 @@ class Powerup{
     }
     
     boolean onFloor(){
-      return y >= 711;
+      return y >= 675;
     }
     
     boolean canBeDisplayed(){

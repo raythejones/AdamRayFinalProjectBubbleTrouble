@@ -44,8 +44,17 @@ boolean endGame = false;
       fill(255);
       
       //// POWERUP CODE \\\\\ 
+      if(!finnaSpawn.canBeDisplayed()){
+        if(random(chanceOfSpawn) < 1){
+          finnaSpawn = new Powerup(p);
+          finnaSpawn.makeNewPowerupKinda();
+        }
+      }
+      else{
+        finnaSpawn.show();
+        thread("poweritup");
+      }
       
-      thread("poweritup");
       
       //PLAYER MOVEMENT\\
       p.move();
@@ -126,21 +135,11 @@ boolean endGame = false;
   }
   
   void poweritup(){
-    if(finnaSpawn.canBeDisplayed()){
-        finnaSpawn.show();
-        if(finnaSpawn.isTouching(p.currentPos())){
-          finnaSpawn.use();
-        }
-        if(!finnaSpawn.onFloor()){
-          finnaSpawn.fall();
-        }
-        
+      if(finnaSpawn.isTouching(p.currentPos())){
+        finnaSpawn.use();
       }
-      else{
-        if(random(chanceOfSpawn) < 1){
-          finnaSpawn = new Powerup(p);
-          finnaSpawn.makeNewPowerupKinda();
-        }
+      if(!finnaSpawn.onFloor()){
+        finnaSpawn.fall();
       }
   }
 
