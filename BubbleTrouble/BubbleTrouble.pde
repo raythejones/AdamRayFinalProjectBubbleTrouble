@@ -27,7 +27,7 @@ boolean endGame = false;
 }
   
   void draw(){
-   if(endGame == false){
+    if(endGame == false){
 
     background(0);
     fill(153, 38, 0);
@@ -60,7 +60,7 @@ boolean endGame = false;
     bub.bounce();
     PVector wya = bub.getCoords();
     PVector aqui = h.endPoint();
-    if(abs((wya.x - aqui.x) / ((wya.x + aqui.x) / 2)) <= .025 && wya.y >= aqui.y){
+    if(abs((wya.x - aqui.x) / ((wya.x + aqui.x) / 2)) <= .05 && wya.y >= aqui.y){
         h.reset();
         if(bub.size()/2 > 10){
           Bubble[] children = bub.split();
@@ -71,7 +71,7 @@ boolean endGame = false;
         if(bubbles.size() == 0){
           level += 1;
           for(int j = 0; j < level; j++){
-            bubbles.add(new Bubble(60, 500 + ((distBetweenBubs * level) / 2) - distBetweenBubs * j, 350, (int)pow(-1, j)));
+            bubbles.add(new Bubble(60, 450 + ((distBetweenBubs * level) / 2) - distBetweenBubs * j, 350, (int)pow(-1, j)));
           }
         }
       }

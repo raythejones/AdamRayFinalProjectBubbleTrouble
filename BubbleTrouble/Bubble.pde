@@ -22,7 +22,7 @@ class Bubble{
   
   void bounce(){
     
-    if(coords.x > width-size || coords.x < size){
+    if(coords.x > width-size/2 || coords.x < size/2){
        velocity.x *= -1;
     }
     if(coords.y > 711 - (size * .7)){
@@ -33,7 +33,7 @@ class Bubble{
     velocity.y += .25;  
     coords.add(velocity);
     
- //<>// //<>//
+ //<>// //<>// //<>//
     ellipse(coords.x, coords.y, size, size); 
  
   }
