@@ -126,7 +126,6 @@ boolean endGame = false;
   }
   
   void poweritup(){
-      fill(255);
     if(finnaSpawn.canBeDisplayed()){
         finnaSpawn.show();
         if(finnaSpawn.isTouching(p.currentPos())){
