@@ -13,37 +13,34 @@ class Player {
   Player(int xx) {
     position = xx;
   }
-  
-  void display(){
-    if(isLeft){
+
+  void display() {
+    if (isLeft) {
       display(-1);
-    }
-    else if(isRight){
+    } else if (isRight) {
       display(1);
-    }
-    else{
+    } else {
       display(0);
     }
   }
 
   void display(int dir) {
-    /*ellipse(position, 650, 20, 20);
+    imageMode(CENTER);
+    /*ellipse(position, 675, 20, 20);
      stroke(255);
-     line(position, 650, position, 690);
+     line(position, 675, position, 690);
      line(position, 690, position+20, 710);
      line(position, 690, position-20, 710);
      line(position-15, 670, position+15, 670);
      line(position-15, 670, position+15, 670);*/
-    if(dir == -1){
-      image(left, position, 650);
+    if (dir == -1) {
+      image(left, position, 675);
+    } else if (dir == 1) {
+      image(right, position, 675);
+    } else {
+      image(front, position, 675);
     }
-    else if(dir == 1){
-      image(right, position, 650);
-    }
-    else{
-      image(front, position, 650);
-    }
-    
+    ellipse(position, 675, 25, 25);
   }
 
   boolean dieable() {
@@ -51,7 +48,7 @@ class Player {
   }
 
   PVector currentPos() {
-    return new PVector(position, 650);
+    return new PVector(position, 675);
   }
 
   void move() {
@@ -59,9 +56,8 @@ class Player {
     position = constrain(position + speed*(int(isRight) - int(isLeft)), r, width  - r);
   }
 
-
   void drawPlayer() {    
-    ellipse(position, 650, 50, 50);
+    ellipse(position, 675, 50, 50);
   }
 
 

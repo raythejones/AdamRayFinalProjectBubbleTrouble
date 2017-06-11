@@ -38,7 +38,7 @@ void draw() {
 
       //DRAWING THE WINDOW\\
 
-      background(0);
+      background(pic);
       fill(153, 38, 0);
       stroke(153, 38, 0);
       rect(0, 711, 1000, 75);
@@ -73,15 +73,15 @@ void draw() {
         Bubble bub = bubbles.get(i);
         if (bub.size() >= 15) {
           fill(102, 255, 153);
-          stroke(102, 255, 153);
+          stroke(0);
         }
         if (bub.size() >= 30) {
           fill(204, 102, 255);
-          stroke(204, 102, 255);
+          stroke(0);
         }
         if (bub.size() >= 60) {
           fill(255, 102, 0);
-          stroke(255, 102, 0);
+          stroke(0);
         }
 
         bub.bounce();
@@ -109,7 +109,7 @@ void draw() {
           }
         }
 
-        if (bub.dist(p.currentPos()) <= bub.size() * 1.02) {
+        if (bub.dist(p.currentPos()) <= (bub.size() * 1.02)) {
           if (p.dieable()) {
             p.isAlive = false; 
             endGame = true;
@@ -120,7 +120,7 @@ void draw() {
       //HARPOON SHOOTING\\
       if (h.canShoot) {
         h.settw(4);
-        h.setX(p.position + 25);
+        h.setX(p.position);
       }
 
       if (h.isShooting) {
@@ -174,6 +174,7 @@ void poweritup() {
 void mousePressed() {
   if (!gameStarted) {
     ellipse(mouseX, mouseY, 25, 25);
+    delay(20);
     if (mouseY <= 275 && mouseY >= 220) {
       if (mouseX >= 480 && mouseX <= 605) {
         startGame(0);
