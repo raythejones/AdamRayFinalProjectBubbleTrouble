@@ -114,10 +114,10 @@ void draw() {
         PVector wya = bub.getCoords();
         PVector aqui = h.endPoint();
 
-        boolean touchingLine = abs((wya.x - aqui.x) / ((wya.x + aqui.x) / 2)) <= .04;
+        boolean touchingLine = abs((wya.x - aqui.x) / ((wya.x + aqui.x) / 2)) <= .02;
         if (h.dos) {
           PVector donde = h.thatOtherOne();
-          touchingLine = touchingLine || abs((wya.x - donde.x) / ((wya.x + donde.x) / 2)) <= .04;
+          touchingLine = touchingLine || abs((wya.x - donde.x) / ((wya.x + donde.x) / 2)) <= .02;
         }
         if (touchingLine && wya.y >= aqui.y) {
           h.reset();
