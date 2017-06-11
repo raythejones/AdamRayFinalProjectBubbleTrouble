@@ -24,6 +24,7 @@ void setup()
   p = new Player(500);
   h = new Harpoon(p.position);
   makeAPup();
+  finnaSpawn.isVisible = false;
 
   pic = loadImage("back.jpg");
   bg = loadImage("StartScreen.png");

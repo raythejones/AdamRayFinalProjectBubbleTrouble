@@ -40,7 +40,6 @@ class Player {
     } else {
       image(front, position, 675);
     }
-    ellipse(position, 675, 25, 25);
   }
 
   boolean dieable() {
