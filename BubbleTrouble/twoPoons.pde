@@ -19,7 +19,6 @@ class twoPoons extends Powerup {
   }
 
   void powerUP() {
-    print(poony.dos);
     poony.dos = true;
     inUse = true; 
     x = 850;

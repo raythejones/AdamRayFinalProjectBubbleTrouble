@@ -22,7 +22,6 @@ class Harpoon {
       stroke(191);
       int offset = 0;
       if (dos) {
-        print("doin smth");
         offset = 25;
         line(harposition - offset, 711, harposition - offset, startY);
       }
