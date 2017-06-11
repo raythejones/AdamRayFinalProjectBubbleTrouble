@@ -1,8 +1,6 @@
-class Powerup{
+abstract class Powerup{
     boolean isVisible;
     float x,y;
-    Player playa;
-    Harpoon hapoon;
     
     
     Powerup(){
