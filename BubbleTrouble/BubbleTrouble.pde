@@ -22,6 +22,7 @@ boolean endGame = false;
     p = new Player(500);
     h = new Harpoon(p.position);
     bubbles.add(new Bubble(60));
+    makeAPup();
  
 }
   
@@ -45,7 +46,7 @@ boolean endGame = false;
       //// POWERUP CODE \\\\\ 
       if(!finnaSpawn.canBeDisplayed()){
         if(random(chanceOfSpawn) < 1){
-         
+         makeAPup();
         }
       }
       else{
