@@ -1,4 +1,4 @@
-int Time = 0, lives = 0, level = 1, chanceOfSpawn = 200, numberPowerups = 1;
+int Time = 0, lives = 0, level = 1, chanceOfSpawn = 200, numberPowerups = 2;
 float distBetweenBubs = 200;
 ArrayList<Bubble> bubbles = new ArrayList<Bubble>();
 static final int DIAM = 48, SPD = 3, FPS = 60;
@@ -98,8 +98,10 @@ boolean endGame = false;
          }
          
        if(bub.dist(p.currentPos()) <= bub.size() * 1.02){
-          p.isAlive = false; 
-          endGame = true; 
+         if(p.dieable()){
+            p.isAlive = false; 
+            endGame = true; 
+         }
        }
        
       }
@@ -134,14 +136,19 @@ boolean endGame = false;
   }
   
   void makeAPup(){
+    print((int)random(numberPowerups));
      int num = (int)random(numberPowerups);
       switch (num) {
         case 0:
           finnaSpawn = new speedpowerup(p);
+        case 1:
+          finnaSpawn = new invincibility(p);
        }
       finnaSpawn.makeNewPowerupKinda();
   }
+  
   void poweritup(){
+    print(finnaSpawn);
       if(finnaSpawn.isTouching(p.currentPos())){
         finnaSpawn.use();
       }

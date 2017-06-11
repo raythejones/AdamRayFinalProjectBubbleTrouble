@@ -4,7 +4,7 @@ class Player {
   int speed = 5;
   boolean isLeft, isRight;
   int position, y;
- boolean isAlive = true;
+ boolean isAlive = true, canDie = true;
   Player(int xx) {
     position = xx;
 }
@@ -18,6 +18,10 @@ class Player {
     line(position-15,670,position+15,670);
     line(position-15,670,position+15,670);
 
+  }
+  
+  boolean dieable(){
+    return canDie;
   }
  
    PVector currentPos(){

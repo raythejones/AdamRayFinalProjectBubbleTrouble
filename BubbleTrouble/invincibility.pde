@@ -1,7 +1,7 @@
-class speedpowerup extends Powerup{
+class invincibility extends Powerup{
     Player playa;
     
-    speedpowerup(Player needstobewatched){
+    invincibility(Player needstobewatched){
       isVisible = false;
       x = 500;
       y = 550;
@@ -11,17 +11,17 @@ class speedpowerup extends Powerup{
    
     void show(){
       isVisible = true;
-      image(loadImage("lightningbolt.png"), x, y);
+      image(loadImage("invincibl.png"), x, y);
     }
     
     void powerUP(){
-      playa.speed = 15;
+      playa.canDie = false;
       isVisible = false;
       delay(5000);
-      playa.speed = 5;
+      playa.canDie = true;
     }
     
     String toString(){
-      return "I make you fast";
+      return "I make you invincible";
     }
 }

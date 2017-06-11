@@ -37,7 +37,6 @@ abstract class Powerup{
     
     boolean isTouching(PVector otherObj){
      PVector coords = new PVector(x, y);
-     print(coords + " " + otherObj + "\n");
      return coords.dist(otherObj) < 75;
     }
 }
