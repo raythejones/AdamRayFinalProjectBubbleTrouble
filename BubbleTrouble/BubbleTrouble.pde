@@ -79,7 +79,13 @@ void draw() {
       bub.bounce();
       PVector wya = bub.getCoords();
       PVector aqui = h.endPoint();
-      if (abs((wya.x - aqui.x) / ((wya.x + aqui.x) / 2)) <= .04 && wya.y >= aqui.y) {
+      
+      boolean touchingLine = abs((wya.x - aqui.x) / ((wya.x + aqui.x) / 2)) <= .04;
+      if(h.dos){
+        PVector donde = h.thatOtherOne();
+        touchingLine = touchingLine || abs((wya.x - donde.x) / ((wya.x + donde.x) / 2)) <= .04;
+      }
+      if (touchingLine && wya.y >= aqui.y) {
         h.reset();
         if (bub.size()/2 > 10) {
           Bubble[] children = bub.split();

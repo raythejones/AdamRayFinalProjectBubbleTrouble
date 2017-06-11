@@ -2,7 +2,7 @@ class Harpoon{
   int harposition;
   boolean isShooting, canShoot = true;
   boolean dos = false;
-  int startY = 711, len = 0;
+  int startY = 711, len = 0, offset = 0;
   float accel = .1, takeaway = 4;
   
   Harpoon(){
@@ -51,8 +51,13 @@ class Harpoon{
   };
   
   PVector endPoint(){
-    return new PVector(harposition, startY);
+    return new PVector(harposition + offset, startY);
   }
+  
+  PVector thatOtherOne(){
+    return new PVector(harposition - offset, startY);
+  }
+  
 
 
   boolean setMove(int k, boolean b) {

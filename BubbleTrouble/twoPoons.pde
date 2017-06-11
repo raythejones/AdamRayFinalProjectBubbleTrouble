@@ -22,8 +22,9 @@ class twoPoons extends Powerup{
       print(poony.dos);
       poony.dos = true;
       isVisible = false;
-      delay(2000);
+      delay(3500);
       poony.dos = false;
+      poony.offset = 0;
     }
     
     String toString(){
