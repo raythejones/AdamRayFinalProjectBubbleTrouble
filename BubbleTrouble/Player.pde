@@ -42,7 +42,7 @@ class Player {
   boolean setMove(int k, boolean b) {
     switch (k) {
     case LEFT:
-      return isLeft = b;
+      return isLeft = b;  
  
     case RIGHT:
       return isRight = b;

@@ -1,6 +1,7 @@
 class Bubble{
   private int size;
   private PVector velocity, coords;
+  int splitFac = 3;
   
   Bubble(int syz){
    size = syz;   
@@ -17,7 +18,7 @@ class Bubble{
   }
   
   Bubble[] split(){
-    return new Bubble[]{new Bubble(size/2, coords.x - 10, coords.y, -1), new Bubble(size/2, coords.x + 10, coords.y, 1)}; 
+    return new Bubble[]{new Bubble(splitFac * size/4, coords.x - 10, coords.y, -1), new Bubble(splitFac * size/4, coords.x + 10, coords.y, 1)}; 
   }
   
   void bounce(){
@@ -32,7 +33,7 @@ class Bubble{
     
     velocity.y += .25;  
     coords.add(velocity);
-    
+     //<>//
  //<>// //<>// //<>//
     ellipse(coords.x, coords.y, size, size); 
  

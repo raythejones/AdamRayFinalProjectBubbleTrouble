@@ -10,6 +10,7 @@ class speedpowerup extends Powerup{
     
    
     void show(){
+      print("i am useful");
       isVisible = true;
       image(loadImage("lightningbolt.png"), x, y);
     }
