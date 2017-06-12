@@ -1,4 +1,4 @@
-# <img src="BubbleTrouble/1.png"></img> IcebRAYkers <br> HubbaBubbaBubbABBAS Bubble Trouble <img src="BubbleTrouble/1.png"></img>
+# <img src="BubbleTrouble/1.png"></img> IcebRAYkers HubbaBubbaBubbABBAS Bubble Trouble <img src="BubbleTrouble/1.png"></img>
 
 <h1> The Idea </h1>
 Inspired by one of their favorite childhood games: <a href="https://www.miniclip.com/games/bubble-trouble/en/"><b><i> Bubble Trouble </b></i></a> by Miniclip, Adam and Ray set out to recreate this. Armed with a shaky idea of what physics is, A1 java skills, theoretical Processing skills and a ton of imagination - this is their end product.
@@ -8,15 +8,32 @@ No, this isn't an exact replica. That would be illegal! But it is a super cool m
 <ul>
     <li> Difficulty Levels! Choose between Easy, Medium, and Hard <ul> <li>These control the powerup spawn rate, and bubble lives</li> </ul> </li>
     <li> Powerups! Watch random powerups spawn and fall, giving you things like increased speed or invincibility </li>
-    <li> Increasing Difficulty! Everytime you clear a wave of bubbles a new one spawns - plus an extra bubble! </li>
+    <li> Two Game Modes! <ul>
+        <li> Timed Levels <ul>
+            <li> In a race against the clock, aim to clear the level of all bubbles. An extra bubble spawns each level - and you have less time! </li>
+            </ul>
+        </li>
+        <li> Free-for-All <ul>
+            <li> Try to survive for as long as possible! Clear the screen of all bubbles - only to be met with more! </li>
+            </ul>
+        </li>
+    </ul> </li>
+    <li> Stunning visuals! <ul>
+        <li> With about 70% of our artwork coming from the internet, how could we go wrong? Check out some epic photoshopped menus, powerups with references to other games and a gorgeous backdrop. </li>
+        </ul>
+    </li>
 </ul>
 
 <h1> Development Log! </h1>
 In true Stuyvesant fashion, our development cycle follows an exponential path - it starts off slow and steady and picks up the weekend before its due :) Here's our big milestones:
 <ul>
+    <li> 5/29/17 <ul>
+        <li> We solidify our idea </li>
+        <li> We created our initial UML diagram </li>
+        </ul>
+    </li>
     <li> 5/30/17 <ul>
         <li>The git repository is created! </li>
-        <li> We created our initial UML diagram/idea </li>
         </ul>
     </li>
     <li> 6/1/17 <ul>
@@ -68,3 +85,4 @@ In true Stuyvesant fashion, our development cycle follows an exponential path - 
         </li>
         </ul>
     </li>
+</ul>
