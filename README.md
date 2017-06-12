@@ -87,6 +87,14 @@ In true Stuyvesant fashion, our development cycle follows an exponential path - 
     </li>
 </ul>
 
+<h1> Documented Bugs </h1>
+<ul>
+    <li> Fork Powerup <ul>
+        <li> The fork powerups a special lil thing; it makes it so that for the next 3 seconds every harpoon you shoot will come out as 2! While this sounds fantabulous, it's a bit janky from a programming perspective so you might get some weird visual things going on before the harpoons finally split the ball </li>
+        </ul>
+    </li>
+</ul>
+
 <h1> Possible Future Implementations | What Could've Been... </h1>
 <ul>
     <li> More powerups! <ul>
