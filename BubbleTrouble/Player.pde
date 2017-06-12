@@ -53,6 +53,9 @@ class Player {
   void move() {
     int r = 20>>1;
     position = constrain(position + speed*(int(isRight) - int(isLeft)), r, width  - r);
+    if(isAlive){
+      display();
+    }
   }
 
   void drawPlayer() {    
