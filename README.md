@@ -1,7 +1,7 @@
-# <img src="BubbleTrouble/1.png"></img> IcebRAYkers HubbaBubbaBubbABBAS Bubble Trouble 
+# <img src="BubbleTrouble/1.png"></img> IcebRAYkers HubbaBubbaBubbABBAS Bubble Trouble
 
 <h1> The Idea </h1>
-Inspired by one of their favorite childhood games: <a href="https://www.miniclip.com/games/bubble-trouble/en/"><b><i> Bubble Trouble </b></i></a> by Miniclip, Adam and Ray set out to recreate this. Armed with a shaky idea of what physics is, A1 java skills, theoretical Processing skills and a ton of imagination - this is their end product.
+Inspired by one of their favorite childhood games: <a href="https://www.miniclip.com/games/bubble-trouble/en/"><b><i> Bubble Trouble </b></i></a> by Miniclip, Adam and Ray set out to recreate this simplistic yet addicting masterpiece. Armed with a shaky idea of what physics is, A1 java skills, theoretical Processing skills and a ton of imagination - this is their end product.
 
 <h1> Features </h1>
 No, this isn't an exact replica. That would be illegal! But it is a super cool mockup that sacrificed some features and brought in others to make the final game. Here's some of the cool things we have to offer:
@@ -23,6 +23,15 @@ No, this isn't an exact replica. That would be illegal! But it is a super cool m
         </ul>
     </li>
 </ul>
+
+<h1> Instructions! </h1>
+<ol>
+    <li> Launch our game through processing </li>
+    <li> Using your mouse, select your difficulty! Hovering over the options will give you a short description as to what they do </li>
+    <li> Now select your mode, timed or free for all. </li>
+    <li> Use your arrow keys to move around, and press the spacebar to shoot your harpoon! </li>
+    <li> Avoid touching the bubbles, and pick up powerups whenever you can! </li>
+</ol>
 
 <h1> Development Log! </h1>
 In true Stuyvesant fashion, our development cycle follows an exponential path - it starts off slow and steady and picks up the weekend before its due :) Here's our big milestones:
@@ -103,6 +112,10 @@ In true Stuyvesant fashion, our development cycle follows an exponential path - 
     </li>
     <li> Two Player Mode! <ul>
         <li> With an already existing player class, this could be implemented by creating a second set of everything and mapping new controls. </li>
+        </ul>
+    </li>
+    <li> Multiple Powerup Spawning <ul>
+        <li> As of right now there is a singular powerup variable, maybe implement an Array or one variable per powerup type? </li>
         </ul>
     </li>
 </ul>
