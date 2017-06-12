@@ -6,8 +6,8 @@ class Player {
   int position, y;
   boolean isAlive = true, canDie = true;
   PImage front = loadImage("1.png");
-  PImage left = loadImage("left.png");
-  PImage right = loadImage("right.png");
+  PImage left = loadImage("right.png");
+  PImage right = loadImage("left.png");
 
 
   Player(int xx) {
