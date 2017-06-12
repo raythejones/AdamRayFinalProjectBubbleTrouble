@@ -162,7 +162,7 @@ void doYaBubbleThang() {
   for (int i = 0; i < bubbles.size(); i++) {
     Bubble bub = bubbles.get(i);
     if (bub.size() >= 15) {
-      fill(170, 170, 255);
+      fill(200, 100, 150);
       stroke(0);
     }
     if (bub.size() >= 20) {
@@ -178,7 +178,7 @@ void doYaBubbleThang() {
       stroke(0);
     }
     if (bub.size() >= 50) {
-      fill(200, 100, 150);
+      fill(170, 170, 255);
       stroke(0);
     }
     if (bub.size() >= 60) {
