@@ -33,14 +33,17 @@ class Bubble {
     }
     if (coords.y > 711 - (size * .7)) {
       coords.y = 711 - (size * .7);
-      velocity.y = -1 * pow(size, .7); //<>// //<>//
-    } //<>// //<>// //<>//
-    //<>// //<>//
+      velocity.y = -1 * pow(size, .7); //<>// //<>// //<>//
+    } //<>// //<>// //<>// //<>//
+    //<>// //<>// //<>//
     velocity.y += .25;  
     coords.add(velocity);
-    //<>// //<>//
-    //<>// //<>// //<>// //<>// //<>//
-    ellipse(coords.x, coords.y, size, size); //<>// //<>//
+    //<>// //<>// //<>//
+    //<>// //<>// //<>// //<>// //<>// //<>//
+    ellipse(coords.x, coords.y, size, size); //<>// //<>// //<>//
+    color(255);
+    text(size, 25, 25);
+    
   }
 
   PVector getCoords() {
