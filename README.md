@@ -86,3 +86,15 @@ In true Stuyvesant fashion, our development cycle follows an exponential path - 
         </ul>
     </li>
 </ul>
+
+<h1> Possible Future Implementations | What Could've Been... </h1>
+<ul>
+    <li> More powerups! <ul>
+        <li> With our nifty abstract class, this wouldn't be hard to do - if we can think it we can implement it </li>
+        </ul>
+    </li>
+    <li> Two Player Mode! <ul>
+        <li> With an already existing player class, this could be implemented by creating a second set of everything and mapping new controls. </li>
+        </ul>
+    </li>
+</ul>
