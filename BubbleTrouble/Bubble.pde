@@ -22,10 +22,6 @@ class Bubble {
     return new Bubble[]{new Bubble(splitFac * size/6, coords.x - 10, coords.y, -1, splitFac), new Bubble(splitFac * size/6, coords.x + 10, coords.y, 1, splitFac)};
   }
 
-  void setSplit(int split) {
-    splitFac = split;
-  }
-
   void bounce() {
 
     if (coords.x > width-size/2 || coords.x < size/2) {
@@ -33,18 +29,18 @@ class Bubble {
     }
     if (coords.y > 711 - (size * .7)) {
       coords.y = 711 - (size * .7);
-      velocity.y = -1 * pow(size, .7);  //<>//
-    } //<>//
-    velocity.y += .25;   //<>//
+      velocity.y = -1 * pow(size, .7); 
+    }
+    velocity.y += .25;  
     coords.add(velocity);
-    ellipse(coords.x, coords.y, size, size); 
+    ellipse(coords.x, coords.y, size, size);  //<>//
      //<>//
   } //<>//
- //<>//
-  PVector getCoords() {
-    return coords;
-  }
 
+  PVector getCoords() {
+    return coords; //<>//
+  } //<>//
+ //<>//
   void setX(float ex) {
     coords.x = ex;
   }  

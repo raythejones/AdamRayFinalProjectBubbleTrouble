@@ -24,6 +24,8 @@ void setup()
   strokeWeight(Player.BOLD);  
 
 
+  Time = 1;
+  level = 1;
   waitforstart = false;
   pic = loadImage("back.jpg");
   bg = loadImage("StartScreen.png");
@@ -205,10 +207,10 @@ void bubblePlayer(Bubble bub) {
 void bubbleHarpoon(Bubble bub) {
   PVector wya = bub.getCoords();
   PVector aqui = h.endPoint();
-  boolean touchingLine = abs((wya.x - aqui.x) / ((wya.x + aqui.x) / 2)) <= .02;
+  boolean touchingLine = abs((wya.x - aqui.x) / ((wya.x + aqui.x) / 2)) <= .03;
   if (h.dos) {
     PVector donde = h.thatOtherOne();
-    touchingLine = touchingLine || abs((wya.x - donde.x) / ((wya.x + donde.x) / 2)) <= .02;
+    touchingLine = touchingLine || abs((wya.x - donde.x) / ((wya.x + donde.x) / 2)) <= .03;
   }
   if (touchingLine && wya.y >= aqui.y) {
     h.reset();
