@@ -59,195 +59,92 @@ void draw() {
   } else {
     if (!endGame) {
       if (mode == 1) {
-        //DRAWING THE WINDOW\\
-        print("aha");
-
         background(pic);
-
-        fill(0);
-        textSize(20);
-        text("Active Powerups", 815, 40);
-
-        fill(255);
-        stroke(0);
-        rect(820, 50, 150, 100);
-
-        fill(153, 38, 0);
-        stroke(153, 38, 0);
-        rect(0, 711, 1000, 75);
-        stroke(255);
-
-        line(0, 715, 1000, 715);
-        line(0, 725, 1000, 725);
-        line(0, 735, 1000, 735);
-        line(0, 745, 1000, 745);
-        fill(255);
-
-        //// POWERUP CODE \\\\\ 
-        if (!finnaSpawn.canBeDisplayed()) {
-          if (random(chanceOfSpawn) < 1) {
-            makeAPup();
-          }
-        } else {
-          finnaSpawn.show();
-          thread("poweritup");
-        }
-
-
-        //PLAYER MOVEMENT\\
+        drawStuff();
+        powerupStuff();
         p.move();
-
-        if (p.isAlive) {
-          p.display();
-        }    
-
-        //BUBBLE MOVEMENT SLASH INTERACTION \\
-        for (int i = 0; i < bubbles.size(); i++) {
-          Bubble bub = bubbles.get(i);
-          if (bub.size() >= 15) {
-            fill(102, 255, 153);
-            stroke(0);
-          }
-          if (bub.size() >= 30) {
-            fill(204, 102, 255);
-            stroke(0);
-          }
-          if (bub.size() >= 60) {
-            fill(255, 102, 0);
-            stroke(0);
-          }
-
-          bub.bounce();
-          PVector wya = bub.getCoords();
-          PVector aqui = h.endPoint();
-
-          boolean touchingLine = abs((wya.x - aqui.x) / ((wya.x + aqui.x) / 2)) <= .02;
-          if (h.dos) {
-            PVector donde = h.thatOtherOne();
-            touchingLine = touchingLine || abs((wya.x - donde.x) / ((wya.x + donde.x) / 2)) <= .02;
-          }
-          if (touchingLine && wya.y >= aqui.y) {
-            h.reset();
-            if (bub.size()/2 > 10) {
-              Bubble[] children = bub.split();
-              bubbles.add(children[0]);
-              bubbles.add(children[1]);
-            }
-            bubbles.remove(bub);
-            if (bubbles.size() == 0) {
-              level += 1;
-              for (int j = 0; j < level; j++) {
-                bubbles.add(new Bubble(60, 400 + ((distBetweenBubs * level) / 2) - distBetweenBubs * j, 350, (int)pow(-1, j), sf));
-              }
-            }
-          }
-
-          if (bub.dist(p.currentPos()) <= (bub.size() * 1.02)) {
-            if (p.dieable()) {
-              p.isAlive = false; 
-              endGame = true;
-            }
-          }
-        }
-
-        //HARPOON SHOOTING\\
-        if (h.canShoot) {
-          h.settw(4);
-          h.setX(p.position);
-        }
-
-        if (h.isShooting) {
-          h.shoot();
-        }
-
-        if (h.canShoot) {
-          h.settw(11);
-          h.setX(0);
-        }
-        if (h.isShooting) {
-          h.shoot();
-        }
+        doYaBubbleThang();
+        harpoonShoot();
 
         //ENDING THE GAME\\
         if (endGame == true) {
-          background(100);
-          fill(255, 0, 0);
-          textSize(70);
-          text("Game Over", 315, 400);
-
-          fill(0);
-          stroke(255);
-          rect(360, 470, 250, 100);
-
-          fill(255);
-          textSize(25);
-          text("Click to restart!", 385, 525);
+          endScreen("Game Over");
+          resetButton();
         }
       } else { //This is the timed mode
-        background(pic);
-        //Timer Code\\
-        fill(255, 0, 0);
-        stroke(0);
-        rect(75, 50, ((75 + (FPS * 5)) * (1 - Time/FPS)) / level, 50);
-        text("Time", 75, 40);
-        Time += 1.0 * level / FPS;
-
-        if (bubbles.size() > 0) {
-          //DRAWING THE WINDOW\\
-          drawStuff();
-
-          powerupStuff();
-          
-          p.move();
-          
-          doYaBubbleThang();
-          
-          harpoonShoot();
-        } else {
-          level++;
-          Time = 0;
-          for (int j = 0; j < level; j++) {
-            bubbles.add(new Bubble(60, 400 + ((distBetweenBubs * level) / 2) - distBetweenBubs * j, 350, (int)pow(-1, j), sf));
+        timerWindow();
+        if (level <= 3) {
+          if (bubbles.size() > 0) {
+            drawStuff();
+            powerupStuff();
+            p.move();
+            doYaBubbleThang();
+            harpoonShoot();
+          } else {
+            level++;
+            Time = 0;
+            for (int j = 0; j < level; j++) {
+              bubbles.add(new Bubble(60, 400 + ((distBetweenBubs * level) / 2) - distBetweenBubs * j, 350, (int)pow(-1, j), sf));
+            }
           }
-        }
-        if (endGame == true) {
-          background(100);
-          fill(255, 0, 0);
-          textSize(70);
-          text("Game Over", 315, 400);
-
-          fill(0);
-          stroke(255);
-          rect(360, 470, 250, 100);
-
-          fill(255);
-          textSize(25);
-          text("Click to restart!", 385, 525);
+          if (endGame == true) {
+            endScreen("Game Over");
+            resetButton();
+          }
+        } else {
+          endScreen("You won!");
+          resetButton();
         }
       }
     }
   }
 }
 
-void drawStuff(){
+void resetButton() {
   fill(0);
-          textSize(20);
-          text("Active Powerups", 815, 40);
+  stroke(255);
+  rect(360, 470, 250, 100);
 
-          fill(255);
-          stroke(0);
-          rect(820, 50, 150, 100);
+  fill(255);
+  textSize(25);
+  text("Click to restart!", 385, 525);
+}
 
-          fill(153, 38, 0);
-          stroke(153, 38, 0);
-          rect(0, 711, 1000, 75);
-          stroke(255);
+void endScreen(String message) {
+  background(100);
+  fill(255, 0, 0);
+  textSize(70);
+  text(message, 315, 400);
+}
 
-          line(0, 715, 1000, 715);
-          line(0, 725, 1000, 725);
-          line(0, 735, 1000, 735);
-          line(0, 745, 1000, 745);
-          fill(255);
+void timerWindow() {
+  background(pic);
+  fill(255, 0, 0);
+  stroke(0);
+  rect(75, 50, ((75 + (FPS * 5)) * (1 - Time/FPS)) / level, 50);
+  text("Time", 75, 40);
+  Time += 1.0 * level / FPS;
+}
+
+void drawStuff() {
+  fill(0);
+  textSize(20);
+  text("Active Powerups", 815, 40);
+
+  fill(255);
+  stroke(0);
+  rect(820, 50, 150, 100);
+
+  fill(153, 38, 0);
+  stroke(153, 38, 0);
+  rect(0, 711, 1000, 75);
+  stroke(255);
+
+  line(0, 715, 1000, 715);
+  line(0, 725, 1000, 725);
+  line(0, 735, 1000, 735);
+  line(0, 745, 1000, 745);
+  fill(255);
 }
 
 void powerupStuff() {
@@ -265,11 +162,23 @@ void doYaBubbleThang() {
   for (int i = 0; i < bubbles.size(); i++) {
     Bubble bub = bubbles.get(i);
     if (bub.size() >= 15) {
+      fill(170, 170, 255);
+      stroke(0);
+    }
+    if (bub.size() >= 20) {
       fill(102, 255, 153);
       stroke(0);
     }
     if (bub.size() >= 30) {
-      fill(204, 102, 255);
+      fill(104, 102, 255);
+      stroke(0);
+    }
+    if (bub.size() >= 40) {
+      fill(0, 200, 150);
+      stroke(0);
+    }
+    if (bub.size() >= 50) {
+      fill(200, 100, 150);
       stroke(0);
     }
     if (bub.size() >= 60) {
@@ -279,12 +188,12 @@ void doYaBubbleThang() {
 
     bub.bounce();
 
-    bubbleHarpoon();
-    bubblePlayer();
+    bubbleHarpoon(bub);
+    bubblePlayer(bub);
   }
 }
 
-void bubblePlayer() {
+void bubblePlayer(Bubble bub) {
   if (bub.dist(p.currentPos()) <= (bub.size() * 1.02)) {
     if (p.dieable()) {
       p.isAlive = false; 
@@ -293,7 +202,7 @@ void bubblePlayer() {
   }
 }
 
-void bubbleHarpoon() {
+void bubbleHarpoon(Bubble bub) {
   PVector wya = bub.getCoords();
   PVector aqui = h.endPoint();
   boolean touchingLine = abs((wya.x - aqui.x) / ((wya.x + aqui.x) / 2)) <= .02;
@@ -309,6 +218,12 @@ void bubbleHarpoon() {
       bubbles.add(children[1]);
     }
     bubbles.remove(bub);
+    if (bubbles.size() == 0 && mode == 1) {
+      level++;
+      for (int j = 0; j < level; j++) {
+        bubbles.add(new Bubble(60, 400 + ((distBetweenBubs * level) / 2) - distBetweenBubs * j, 350, (int)pow(-1, j), sf));
+      }
+    }
   }
 }
 
@@ -394,7 +309,6 @@ void mousePressed() {
 }
 
 void startGame(int diff) {
-  print("aha");
   bg = loadImage("secondscreen.png");
   background(bg);
   if (diff == 0) {
