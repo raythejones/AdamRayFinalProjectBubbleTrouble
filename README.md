@@ -1,4 +1,4 @@
-# <img src="BubbleTrouble/1.png"></img> IcebRAYkers HubbaBubbaBubbABBAS Bubble Trouble <img src="BubbleTrouble/1.png"></img>
+# <img src="BubbleTrouble/1.png"></img> IcebRAYkers HubbaBubbaBubbABBAS Bubble Trouble 
 
 <h1> The Idea </h1>
 Inspired by one of their favorite childhood games: <a href="https://www.miniclip.com/games/bubble-trouble/en/"><b><i> Bubble Trouble </b></i></a> by Miniclip, Adam and Ray set out to recreate this. Armed with a shaky idea of what physics is, A1 java skills, theoretical Processing skills and a ton of imagination - this is their end product.
