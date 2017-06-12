@@ -30,3 +30,41 @@ In true Stuyvesant fashion, our development cycle follows an exponential path - 
         <li> Bubble is moving in a straight path </li>
         </ul>
     </li>
+    <li> 6/5/17 - 6/6/17 <ul>
+        <li> Person now looks like a... person </li>
+        <li> Bubble size makes more sense</li>
+        <li> Bubble splitting! </li>
+        <li> Bubble bouncing is nicer, but needs to reach a constant height </li>
+        </ul>
+    </li>
+    <li> 6/7/17 <ul>
+        <li> Person is now capable of dying </li>
+        <li> Harpoon acceleration </li>
+        </ul>
+    </li>
+    <li> 6/9/17 <ul>
+        <li> Bubble now splits when it touches the harpoon! </li>
+        <li> Level system established! </li>
+        </ul>
+    </li>
+    <li> 6/10/17 - 6/11/17 | This marks the beginning of the 24 hour coding grind. I will attempt to summarize the achievements of this marathon below. <ul>
+        <li> Powerups! <ul>
+            <li> First established a speed powerup, and then an abstract powerup class </li>
+            <li> Random spawning of powerups </li>
+            <li> Threading -- to let powerups work on their own </li>
+            <li> Fork powerup + invincibility powerup </li>
+            </ul>
+        </li>
+        <li> Visuals! <ul>
+            <li> Added a main screen, allowing the user to select their difficulty (custom photoshop hehe) </li>
+            <li> Using an actual player sprite + background </li>
+            <li> Icons for the powerup </li>
+            </ul>
+        </li>
+        <li> Variation in gameplay: Difficulty/Modes <ul>
+            <li> Game can be harder, powerup spawn rates affected as well as split rate </li>
+            <li> Two modes: timed and free for all. Timed has 3 levels, where you must destroy all the bubbles before time runs out. Each level has more bubbles and ends more quickly. Free for all involves levels, but has no end. </li>
+            </ul>
+        </li>
+        </ul>
+    </li>
