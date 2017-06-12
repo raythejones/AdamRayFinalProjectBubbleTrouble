@@ -6,8 +6,8 @@ class Bubble{
    size = syz;   
    velocity = new PVector(3, -1 * pow(size, .7));
    coords = new PVector(150, 711 - pow(size, .7));
-       fill(255, 102, 0);
-    stroke(255, 102, 0);
+   fill(255, 102, 0);
+   stroke(255, 102, 0);
   }
   
   Bubble(int syz, float x, float y, int xdirection){
@@ -33,7 +33,7 @@ class Bubble{
     velocity.y += .25;  
     coords.add(velocity);
     
- //<>//
+ //<>// //<>//
     ellipse(coords.x, coords.y, size, size); 
  
   }
@@ -41,6 +41,10 @@ class Bubble{
   PVector getCoords(){
     return coords;
   }
+  
+  void setX(float ex){
+    coords.x = ex;
+  }  
   
   float dist(PVector other){
     return coords.dist(other);

@@ -1,6 +1,12 @@
 int Time = 0;
+<<<<<<< HEAD
 int lives = 0;
 int numBubbles = 0;
+=======
+int lives = 0; 
+int level = 1;
+float distBetweenBubs = 200;
+>>>>>>> 7e108acd04e2e66ad78020b11b981c8da5e4f4e5
 ArrayList<Bubble> bubbles = new ArrayList<Bubble>();
 static final int DIAM = 48, SPD = 3, FPS = 60;
 
@@ -29,8 +35,13 @@ boolean endGame = false;
    if(endGame == false){
 
     background(0);
+<<<<<<< HEAD
         fill(153, 38, 0);
 stroke(153, 38, 0);
+=======
+    fill(153, 38, 0);
+    stroke(153, 38, 0);
+>>>>>>> 7e108acd04e2e66ad78020b11b981c8da5e4f4e5
     rect(0,711,1000, 75);
     stroke(255);
 
@@ -39,6 +50,7 @@ stroke(153, 38, 0);
     line(0,725,1000,725);
     line(0,735,1000,735);
     line(0,745,1000,745);
+<<<<<<< HEAD
 
 fill(255);
     p.move();
@@ -59,6 +71,29 @@ fill(255);
     stroke(102, 255, 153);}
       bub.bounce();
       if(bub.dist(h.endPoint()) <= bub.size() * 1.02){
+=======
+    fill(255);
+    
+    p.move();
+ 
+   if(p.isAlive){
+    p.display(); 
+  }    
+   
+  for(int i = 0; i < bubbles.size(); i++){
+    Bubble bub = bubbles.get(i);
+    if(bub.size() == 60){fill(255, 102, 0);
+    stroke(255, 102, 0);}
+    if(bub.size() == 30){fill(204, 102, 255);
+    stroke(204, 102, 255);}
+    if(bub.size() == 15){fill(102, 255, 153);
+    stroke(102, 255, 153);}
+      
+    bub.bounce();
+    PVector wya = bub.getCoords();
+    PVector aqui = h.endPoint();
+    if(abs((wya.x - aqui.x) / ((wya.x + aqui.x) / 2)) <= .025 && wya.y >= aqui.y){
+>>>>>>> 7e108acd04e2e66ad78020b11b981c8da5e4f4e5
         h.reset();
         if(bub.size()/2 > 10){
           Bubble[] children = bub.split();
@@ -66,6 +101,15 @@ fill(255);
           bubbles.add(children[1]);
         }
         bubbles.remove(bub);
+<<<<<<< HEAD
+=======
+        if(bubbles.size() == 0){
+          level += 1;
+          for(int j = 0; j < level; j++){
+            bubbles.add(new Bubble(60, 500 + ((distBetweenBubs * level) / 2) - distBetweenBubs * j, 350, (int)pow(-1, j)));
+          }
+        }
+>>>>>>> 7e108acd04e2e66ad78020b11b981c8da5e4f4e5
       }
     if(bub.dist(p.currentPos()) <= bub.size() * 1.02){
        p.isAlive = false; 
@@ -74,7 +118,11 @@ fill(255);
     }
     
     if(h.canShoot){
+<<<<<<< HEAD
       h.settw(11);
+=======
+      h.settw(4);
+>>>>>>> 7e108acd04e2e66ad78020b11b981c8da5e4f4e5
       h.setX(p.position);
     }
     if(h.isShooting){
